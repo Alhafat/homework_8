@@ -28,8 +28,8 @@ int[,] GetArray2()
 {
     // int[,] array = new int[2, 2];
     int[,] array = {
-                    {3, 4},
-                    {3, 3}
+                    {3,4},
+                    {3,3}
                     };
     // for (int i = 0; i < array.GetLength(0); i++)
     // {
@@ -43,24 +43,20 @@ int[,] GetArray2()
 
 int[,] getProductNumbersArray(int[,] numbers1, int[,] numbers2)
 {
-    int[,] productNumbersArray = new int[numbers1.GetLength(0), numbers1.GetLength(1)];
-    for (int k = 0; k < productNumbersArray.GetLength(0); k++)
+    int[,] productNumbersArray = new int[numbers1.GetLength(0), numbers2.GetLength(1)];
+    for (int k = 0; k < numbers1.GetLength(0); k++)
     {
-        for (int g = 0; g < productNumbersArray.GetLength(1); g++)
+        for (int column = 0; column < numbers2.GetLength(1); column++)
         {
-            foreach (var item in numbers1)
+            for (int row = 0; row < numbers2.GetLength(0); row++)
             {
-                for (int j = 0; j < numbers2.GetLength(1); j++)
-                {
-                    {
-                        productNumbersArray[k, g] += item * numbers2[j,g];             //  
-                    }
-                }
+                productNumbersArray[k, column] += numbers1[k, row] * numbers2[row, column];
             }
         }
     }
     return productNumbersArray;
 }
+
 
 
 void printArray(int[,] numbers)
