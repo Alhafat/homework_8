@@ -38,7 +38,6 @@ void printArray(int[,] numbers)
 
 int[] newArraySummNumbersRow(int[,] numbers)
 {
-    int minSumm = (int.MaxValue);
     int[] summArray = new int[numbers.GetLength(0)];
     for (int j = 0; j < numbers.GetLength(0); j++)
     {
