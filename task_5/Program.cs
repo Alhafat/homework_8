@@ -35,34 +35,69 @@ int[,] PrinArray(int[,] numbers)
 
 int[,] printNumbers(int[,] numbers)
 {
-    for (int row = 0; row< numbers.GetLength(0) - 3; row++)
+    int count = 0;
+    for (int row = 0; row < numbers.GetLength(0) - 3; row++)
     {
         for (int column = 0; column < numbers.GetLength(1); column++)
         {
-            numbers[row, column] = new Random().Next(10, 99);
+            numbers[row, column] += count;
+            count += 1;
         }
     }
+    PrinArray(numbers);
+    System.Console.WriteLine();
     for (int column = numbers.GetLength(1) - 1; column < numbers.GetLength(1); column++)
     {
         for (int row = 1; row < numbers.GetLength(0); row++)
         {
-            numbers[row, column] = new Random().Next(10, 99);
+            numbers[row, column] += count;
+            count += 1; ;
         }
     }
-    for (int row = numbers.GetLength(0); row > numbers.GetLength(0); row++)
+    PrinArray(numbers);
+    System.Console.WriteLine();
+
+    for (int row = numbers.GetLength(0) - 1; row < numbers.GetLength(0); row++)
     {
-        for (int column = numbers.GetLength(1) - 1; column >= 0 ; column--)
+        for (int column = numbers.GetLength(1) - 2; column >= 0; column--)
         {
-            numbers[row, column] = new Random().Next(10, 99);
+            numbers[row, column] += count;
+            count += 1; ;
         }
     }
-    // for (int j = 1; j < numbers.GetLength(1) - 2; j++)
-    // {
-    //     for (int i = 1; i < numbers.GetLength(1) - 1; i++)
-    //     {
-    //         numbers[i,j]=new Random().Next(10,99);
-    //     }
-    // }
+    PrinArray(numbers);
+    System.Console.WriteLine();
+
+    for (int column = 0; column < numbers.GetLength(0) - 3; column++)
+    {
+        for (int row = numbers.GetLength(0) - 2; row >= numbers.GetLength(0) - 3; row--)
+        {
+            numbers[row, column] += count;
+            count += 1; ;
+        }
+    }
+    PrinArray(numbers);
+    System.Console.WriteLine();
+
+    for (int row = 1; row < numbers.GetLength(0) - 2; row++)
+    {
+        for (int column = 1; column < numbers.GetLength(1) - 1; column++)
+        {
+            numbers[row, column] += count;
+            count += 1; ;
+        }
+    }
+    PrinArray(numbers);
+    System.Console.WriteLine();
+
+    for (int row = 2; row < numbers.GetLength(0) - 1; row++)
+    {
+        for (int column = numbers.GetLength(1) - 2; column > 0; column--)
+        {
+            numbers[row, column] = numbers[row, column] + count;
+            count += 1; ;
+        }
+    }
     return numbers;
 }
 
@@ -70,10 +105,10 @@ void main()
 {
     Console.Clear();
     int[,] numbers = GetArray();
+    PrinArray(numbers);
+    System.Console.WriteLine();
     printNumbers(numbers);
     PrinArray(numbers);
-    // string result = printNumbers(numbers);
-    // Console.Write("\n" + result);
 }
 
 main();
