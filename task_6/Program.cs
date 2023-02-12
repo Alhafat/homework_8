@@ -10,15 +10,15 @@
 
 int GetMathSqrt(int number)
 {
-    int count = 0;
+    int count = 1;
     while (true)
     {
-        if (((number - (count * count)) < count))
+        if (((number - (count * count)) <= count))
         {
-            System.Console.WriteLine($"Целая часть квадратного корня от числа {number} --> {count:f0}");
+            System.Console.WriteLine($"Целая часть квадратного корня от числа {number} --> {count}");
             break;
         }
-        else count++;
+        count++;
     }
     return number;
 }
