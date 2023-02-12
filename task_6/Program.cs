@@ -8,19 +8,11 @@
 
 
 
-int GetMathSqrt(int number)
+void GetMathSqrt(int number)
 {
     int count = 1;
-    while (true)
-    {
-        if (((number - (count * count)) <= count))
-        {
-            System.Console.WriteLine($"Целая часть квадратного корня от числа {number} --> {count}");
-            break;
-        }
-        count++;
-    }
-    return number;
+    while (number - (count * count) > count*2) count++;
+    System.Console.WriteLine($"Целая часть квадратного корня от введенного {number} числа ---> {count}");
 }
 
 void main()
